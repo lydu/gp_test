@@ -1,6 +1,6 @@
 version: '2'
 services:
-  gp-master:
+  gpmaster:
      image: 10.0.0.96:5000/database/centos_gp:latest
      hostname: master
      labels:
@@ -14,7 +14,7 @@ services:
        - /sys/fs/cgroup:/sys/fs/cgroup
      privileged: true
      tty: true
-  gp-node1:
+  gpnode1:
      image: 10.0.0.96:5000/database/centos_gp:latest
      hostname: sdw1
      labels:
@@ -28,7 +28,7 @@ services:
        - /sys/fs/cgroup:/sys/fs/cgroup
      privileged: true
      tty: true
-  gp-node2:
+  gpnode2:
      image: 10.0.0.96:5000/database/centos_gp:latest
      hostname: sdw2
      labels:

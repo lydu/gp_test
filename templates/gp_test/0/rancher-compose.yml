@@ -1,6 +1,6 @@
 version: '2'
 .catalog:
-  name: "gp_test"
+  name: "greenplum_1"
   version: "v0.0.1"
   description: "public service for test."
   uuid: public-0
