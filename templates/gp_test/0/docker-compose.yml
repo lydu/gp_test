@@ -9,7 +9,7 @@ services:
      networks: 
        - docker_gwbridge
      ports:
-       - "6004:5432"
+       - "11000:5432"
      volumes:
        - /sys/fs/cgroup:/sys/fs/cgroup
      privileged: true
@@ -23,7 +23,7 @@ services:
      networks: 
        - docker_gwbridge
      ports:
-       - "6004:5432"
+       - "11001:5432"
      volumes:
        - /sys/fs/cgroup:/sys/fs/cgroup
      privileged: true
@@ -37,7 +37,7 @@ services:
      networks: 
        - docker_gwbridge
      ports:
-       - "6004:5432"
+       - "11002:5432"
      volumes:
        - /sys/fs/cgroup:/sys/fs/cgroup
      privileged: true
