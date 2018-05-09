@@ -1,7 +1,7 @@
 version: '2'
 services:
   gpmaster:
-     image: 10.0.0.96:5000/database/centos_gp:latest
+     image: 10.0.0.96:5000/database/gp_orca_conf:v1 
      hostname: master
      labels:
       io.rancher.scheduler.global: 'true'
@@ -9,13 +9,14 @@ services:
      networks: 
        - docker_gwbridge
      ports:
-       - "11000:5432"
+       - "20010:2345"
      volumes:
-       - /sys/fs/cgroup:/sys/fs/cgroup
+       - /opt/gpmaster/gpdata_orca:/home/gpadmin/gpdata
+       - /opt/gpmaster/conf_orca:/home/gpadmin/conf
      privileged: true
      tty: true
   gpnode1:
-     image: 10.0.0.96:5000/database/centos_gp:latest
+     image: 10.0.0.96:5000/database/gp_orca_conf:v1
      hostname: sdw1
      labels:
       io.rancher.scheduler.global: 'true'
@@ -23,23 +24,29 @@ services:
      networks: 
        - docker_gwbridge
      ports:
-       - "11001:5432"
+       - "20011:40000"
+       - "20012:40001"
+       - "20013:43000"
+       - "20014:43001"
      volumes:
-       - /sys/fs/cgroup:/sys/fs/cgroup
+       - /opt/gpnode1/gpadta_orca:/home/gpadmin/gpdata
      privileged: true
      tty: true
   gpnode2:
-     image: 10.0.0.96:5000/database/centos_gp:latest
+     image: 10.0.0.96:5000/database/gp_orca_conf:v1
      hostname: sdw2
      labels:
       io.rancher.scheduler.global: 'true'
-      io.rancher.scheduler.affinity:host_label: key1=110
+      io.rancher.scheduler.affinity:host_label: key1=106
      networks: 
        - docker_gwbridge
      ports:
-       - "11002:5432"
+       - "20015:40000"
+       - "20016:40001"
+       - "20017:43000"
+       - "20018:43001"
      volumes:
-       - /sys/fs/cgroup:/sys/fs/cgroup
+       - /opt/gpnode2/gpdata_orca:/home/gpadmin/gpdata
      privileged: true
      tty: true
 
