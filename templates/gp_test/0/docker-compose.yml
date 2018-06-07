@@ -1,7 +1,7 @@
 version: '2'
 services:
   gpmaster:
-     image: 10.0.0.96:5000/database/gp_orca_conf:v1 
+     image: 10.0.0.96:5000/database/gp_43:v1 
      hostname: master
      labels:
       io.rancher.scheduler.global: 'true'
@@ -11,12 +11,12 @@ services:
      ports:
        - "20010:2345"
      volumes:
-       - /opt/gpmaster/gpdata_orca:/home/gpadmin/gpdata
-       - /opt/gpmaster/conf_orca:/home/gpadmin/conf
+       - /opt/gpmaster/gpdata_43:/home/gpadmin/gpdata
+       - /opt/gpmaster/conf_43:/home/gpadmin/conf
      privileged: true
      tty: true
   gpnode1:
-     image: 10.0.0.96:5000/database/gp_orca_conf:v1
+     image: 10.0.0.96:5000/database/gp_43:v1
      hostname: sdw1
      labels:
       io.rancher.scheduler.global: 'true'
@@ -29,11 +29,11 @@ services:
        - "20013:43000"
        - "20014:43001"
      volumes:
-       - /opt/gpnode1/gpadta_orca:/home/gpadmin/gpdata
+       - /opt/gpnode1/gpadta_43:/home/gpadmin/gpdata
      privileged: true
      tty: true
   gpnode2:
-     image: 10.0.0.96:5000/database/gp_orca_conf:v1
+     image: 10.0.0.96:5000/database/gp_43:v1
      hostname: sdw2
      labels:
       io.rancher.scheduler.global: 'true'
@@ -46,7 +46,7 @@ services:
        - "20017:43000"
        - "20018:43001"
      volumes:
-       - /opt/gpnode2/gpdata_orca:/home/gpadmin/gpdata
+       - /opt/gpnode2/gpdata_43:/home/gpadmin/gpdata
      privileged: true
      tty: true
 
